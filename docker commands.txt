@@ -1,0 +1,54 @@
+docdocdocker images/docker image ls => For listing all images
+
+docker ps / docker container ls=> For listing all running containers
+docker ps --all / docker ps -a => List all containers (irrespective of state)
+
+docker ps -s /docker container ls -s => List all running containers with size
+docker ps --all -s/ docker ps -a -s /docker ps -as => List all containers with size
+
+docker ps -q /docker ps --quit / docker container ls -q / docker container ls --quiet = > For listing all running container's id
+docker ps --all -q / docker ps --all --quit / docker ps -a -q / docker ps -a --quiet /docker ps -aq => For listing all container's id
+
+docker ps -f name=<p>(docker ps -f name=<p> -f status=<running>) / docker conatainer ls -f name=<p>=> For listing running containers based on filteration
+docker ps -a -f name=<p>(docker ps -a -f name=p -f status=<running>) / docker ps --all -f name=<p> / docker ps -af name=<p> => For listing all containers based on filteration
+
+docker rmi <image_id> => To remove image with image_id
+docker rm <contaner_id> => To remove image with container_id
+
+docker create <image_name> / docker container create <image_name> => For creating a new container with image_name
+docker create --name <container_name> <image_name> / docker container create --name <container_name> <image_name> => For creating a new container with image by explicitly specifying container name
+
+docker start <container_id> or <container_name> => For starting container with specified container_id or container_name
+docker stop <container_id> or <container_name> => For stopping container with specified container_id or container_naeme
+docker restart <container_id> or <container_name> => For restarting container with specified container_id or container_naeme
+docker pause <container_id> or <container_name> => For pause container with specified container_id or container_naeme
+docker unpause <container_id> or <container_name> => For unpause container with specified container_id or container_naeme
+
+docker run <image_name> => For creating container with specified image
+docker run --name <container_name> <image_name> => For creating container with explicity specifiying container name
+
+docker run -d <image_name> => For creating container with specified image (detached mode --detach)
+docker run -d --name <container_name> <image_name> => For creating container with explicity specifiying container name (detached mode --detach)
+docker run --name <container_name> -d -p <host_post>:<container_port> <image_name> => port map
+
+docker run -it <image_name>/<container_id> /bin/bash => Run container in interactive mode
+
+docker rename <old_name> <new_name> => For Renaming containers
+
+docker pull imagename:tag => For pulling specified image from docker hub
+docker push repository_name/imagename:tag => For pushing to hub
+
+docker volume create --name volume-name =>For creating volume
+
+docker compose build => For building images
+docker compose up => For creating and running container
+docker compose down => For removing container
+docker compose up --build => For building and running container together
+docker compose down -v => For removing container with volume
+
+docker exec -it 0b832f31daaf /bin/bash
+docker compose exec db psql --username=postgres --dbname=postgres-django  => For opening psql 
+
+docker run -phost_port:container_port image_name  => to open docker container port in host port
+
+
