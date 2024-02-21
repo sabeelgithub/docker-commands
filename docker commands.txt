@@ -18,6 +18,8 @@ docker rm <contaner_id> => To remove image with container_id
 docker create <image_name> / docker container create <image_name> => For creating a new container with image_name
 docker create --name <container_name> <image_name> / docker container create --name <container_name> <image_name> => For creating a new container with image by explicitly specifying container name
 
+docker build -t myimage . =>For building image with specified name and using current directory
+
 docker start <container_id> or <container_name> => For starting container with specified container_id or container_name
 docker stop <container_id> or <container_name> => For stopping container with specified container_id or container_naeme
 docker restart <container_id> or <container_name> => For restarting container with specified container_id or container_naeme
