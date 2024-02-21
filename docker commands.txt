@@ -51,4 +51,8 @@ docker compose exec db psql --username=postgres --dbname=postgres-django  => For
 
 docker run -phost_port:container_port image_name  => to open docker container port in host port
 
+docker inspect image_name => Will get all detailes about image
+docker history ImageID => To see all the commands that were run with an image via a container.
+
+docker kill ContainerID => Is used to kill an existing Docker container.
 
