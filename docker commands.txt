@@ -1,5 +1,33 @@
-docdocdocker images/docker image ls => For listing all images
+# For creating docker image
+docker build -t <image_name> . =>For build a Docker image with the tag image_name from the Dockerfile located in the current directory
 
+# For creating docker container and running it in one command
+docker run <image_name> => For creating container with specified image
+docker run --name <container_name> <image_name> => For creating container with explicity specifiying container name
+docker run -d <image_name> => For creating container with specified image (detached mode --detach)
+docker run -d --name <container_name> <image_name> => For creating container with explicity specifiying container name (detached mode --detach)
+docker run --name <container_name> -d -p <host_post>:<container_port> <image_name> => Port map
+docker run -it <image_name>/<image_id> /bin/bash => Run container in interactive mode
+docker run -phost_port:container_port image_name  => To open docker container port in host port
+
+# For creating docker container without running
+docker create <image_name> / docker container create <image_name> => For creating a new container with image_name
+docker create --name <container_name> <image_name> / docker container create --name <container_name> <image_name> => For creating a new container with image by explicitly specifying container name
+
+# For managing docker containers after creation
+docker start <container_id> or <container_name> => For starting container with specified container_id or container_name
+docker stop <container_id> or <container_name> => For stopping container with specified container_id or container_naeme
+docker restart <container_id> or <container_name> => For restarting container with specified container_id or container_naeme
+docker pause <container_id> or <container_name> => For pause container with specified container_id or container_naeme
+docker unpause <container_id> or <container_name> => For unpause container with specified container_id or container_naeme
+
+# For opening a interactive bash of specified container
+docker exec -it container_id/container_name /bin/bash
+
+# For listing docker images
+docker images/docker image ls => For listing all images
+
+# For listing docker containers
 docker ps / docker container ls=> For listing all running containers
 docker ps --all / docker ps -a => List all containers (irrespective of state)
 
@@ -12,49 +40,37 @@ docker ps --all -q / docker ps --all --quit / docker ps -a -q / docker ps -a --q
 docker ps -f name=<p>(docker ps -f name=<p> -f status=<running>) / docker conatainer ls -f name=<p>=> For listing running containers based on filteration
 docker ps -a -f name=<p>(docker ps -a -f name=p -f status=<running>) / docker ps --all -f name=<p> / docker ps -af name=<p> => For listing all containers based on filteration
 
+# For removing docker images
 docker rmi <image_id> => To remove image with image_id
+
+# For removing docker containers
 docker rm <contaner_id> => To remove image with container_id
 
-docker create <image_name> / docker container create <image_name> => For creating a new container with image_name
-docker create --name <container_name> <image_name> / docker container create --name <container_name> <image_name> => For creating a new container with image by explicitly specifying container name
-
-docker build -t myimage . =>For building image with specified name and using current directory
-
-docker start <container_id> or <container_name> => For starting container with specified container_id or container_name
-docker stop <container_id> or <container_name> => For stopping container with specified container_id or container_naeme
-docker restart <container_id> or <container_name> => For restarting container with specified container_id or container_naeme
-docker pause <container_id> or <container_name> => For pause container with specified container_id or container_naeme
-docker unpause <container_id> or <container_name> => For unpause container with specified container_id or container_naeme
-
-docker run <image_name> => For creating container with specified image
-docker run --name <container_name> <image_name> => For creating container with explicity specifiying container name
-
-docker run -d <image_name> => For creating container with specified image (detached mode --detach)
-docker run -d --name <container_name> <image_name> => For creating container with explicity specifiying container name (detached mode --detach)
-docker run --name <container_name> -d -p <host_post>:<container_port> <image_name> => port map
-
-docker run -it <image_name>/<container_id> /bin/bash => Run container in interactive mode
-
+# For renaming docker container
 docker rename <old_name> <new_name> => For Renaming containers
 
+# For pulling and pushing images from docker hub
 docker pull imagename:tag => For pulling specified image from docker hub
 docker push repository_name/imagename:tag => For pushing to hub
 
+# For killing docker container
+docker kill container_id=> Is used to kill an existing Docker container
+
+# For docker info
+docker inspect image_name => Will get all detailes about image
+docker history Image_id => To see all the commands that were run with an image via a container
+
+# For creating volume
 docker volume create --name volume-name =>For creating volume
 
+# For docker compose(multi conatiner handler) commands
 docker compose build => For building images
 docker compose up => For creating and running container
 docker compose down => For removing container
 docker compose up --build => For building and running container together
 docker compose down -v => For removing container with volume
 
-docker exec -it 0b832f31daaf /bin/bash
 docker compose exec db psql --username=postgres --dbname=postgres-django  => For opening psql 
 
-docker run -phost_port:container_port image_name  => to open docker container port in host port
 
-docker inspect image_name => Will get all detailes about image
-docker history ImageID => To see all the commands that were run with an image via a container.
-
-docker kill ContainerID => Is used to kill an existing Docker container.
 
